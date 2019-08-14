@@ -1,10 +1,10 @@
 .timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    background: #eee;
-    list-style: none;
-    margin: 100px;
-    padding: 40px;
-    border-radius: 10px;
-};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  list-style: none;
+  margin: 100px;
+  padding: 40px;
+  border-radius: 10px;
+}
