@@ -1,10 +1,23 @@
 .timer {
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   background: #eee;
   list-style: none;
-  margin: 100px;
+  margin: 50px;
   padding: 40px;
   border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .timer {
+    flex-wrap: wrap;
+  }
+  .timer__title-container {
+    width: 100%;
+  }
+  .timer__title {
+    text-align: center;
+  }
 }

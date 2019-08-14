@@ -1,8 +1,22 @@
 import React from 'react';
 
+import './index.css';
 import Timer from './components/Timer';
 
-function App() {
+const App = () => {
+  const [events, setEvents] = React.useState([]);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const { target: { title = {}, endDate = {} } = {} } = e;
+
+    setEvents(prevEvents => [
+      { title: title.value, endDate: endDate.value },
+      ...prevEvents
+    ]);
+  };
+
   const getNextEndDate = ({
     year = new Date().getFullYear(),
     month = new Date().getMonth(),
@@ -35,7 +49,24 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <input placeholder="Название" required type="text" name="title" />
+        <input
+          placeholder="Дата"
+          required
+          type="datetime-local"
+          name="endDate"
+        />
+        <button type="submit">Добавить</button>
+      </form>
+      {events.map(event => (
+        <Timer
+          key={event.title}
+          title={event.title}
+          endDate={new Date(event.endDate)}
+        />
+      ))}
       <Timer
         title="До обеда"
         endDate={getNextEndDate({ hours: 12, minutes: 35 })}
@@ -65,6 +96,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;

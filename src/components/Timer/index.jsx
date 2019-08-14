@@ -13,7 +13,6 @@ const Timer = ({ endDate, title }) => {
   }, [endDate]);
 
   const getHours = () => {
-      debugger;
     if (new Date(diff).getHours() - 3 >= 0) {
       return new Date(diff).getHours() - 3;
     } else if (24 - new Date(diff).getHours() < 24) {
@@ -24,8 +23,8 @@ const Timer = ({ endDate, title }) => {
 
   return (
     <ul className="timer">
-      <li>
-        <h2>{title}</h2>
+      <li className="timer__title-container">
+        <h2 className="timer__title">{title}</h2>
       </li>
       {endDate > new Date() && (
         <>
