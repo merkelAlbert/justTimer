@@ -1,0 +1,10 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+.value {
+  font-size: 60px;
+}
